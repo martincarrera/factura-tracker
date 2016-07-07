@@ -1,0 +1,28 @@
+<template name="editar">
+{{> menu}}
+
+<form>
+          <div class="ui center aligned segment">
+          <div class="ui left icon input">
+            <input type="date" value="{{editando.fecha}}" id="fecha">
+            <i class="calendar icon"></i>
+          </div>
+          <div class="ui left icon input">
+            <input type="text" value="{{editando.deudor}}" id="deudor">
+            <i class="user icon"></i>
+          </div>
+          <div class="ui left icon input">
+            <input type="text" value="{{editando.motivo}}" id="motivo">
+            <i class="comment icon"></i>
+          </div>
+          <button class="ui compact labeled icon button" id="guardar">
+          <i class="save icon"></i>
+          Guardar
+        </button>
+        <a class="ui compact labeled icon button" href="/">
+        <i class="cancel icon"></i>
+        Cancelar
+      </a>
+        </div>
+</form>
+</template>

@@ -1,0 +1,29 @@
+
+<template name="pagaHoy">
+<h4>Traen facturas hoy {{hoy}} </h4>
+
+
+
+    <div class="ui cards">
+    {{#each pagaHoy}}
+      <div class="card">
+        <div class="content">
+          <div class="header">
+      <i class="user icon"></i>  {{deudor}}
+      {{#if pagado}}<i class="green checkmark icon"></i>{{else}}<i class="red dollar icon"></i>{{/if}}
+
+          </div>
+          <div class="meta">
+         Creador:{{usuariocarga}}
+       </div>
+          <div class="description">
+          <i class="comment icon"></i> {{motivo}}
+          </div>
+        </div>
+
+      </div>
+    {{/each}}
+  </div>
+
+
+</template>

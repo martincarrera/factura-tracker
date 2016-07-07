@@ -1,0 +1,49 @@
+<template name="lista">
+
+  <div class="ui raised segment">
+    <div class="panel-body">
+        {{> pagaHoy}}
+    </div>
+  </div>
+
+  <div class="ui left aligned segment">
+        <div class="ui toggle checkbox">
+          <input type="checkbox" checked="{{ocultaPagadas}}" id="ocultaPagadas">
+          <label>Mostrar pagadas</label>
+        </div>
+<br>
+<br>
+  <div class="ui cards">
+  {{#each facturas}}
+    &nbsp; &nbsp;
+    <div class="card">
+      <div class="content">
+        <div class="header">
+          <i class="user icon floatleft"></i>  {{deudor}}
+          {{#if pagado}}<i class="green checkmark icon floatright"></i><div class="clearfix"></div>
+          {{else}}<i class="red dollar icon floatright"></i><div class="clearfix"></div>{{/if}}
+          {{#if deudaVencida}}<i class="ui red right ribbon label">Vencida</i>{{/if}}
+        </div>
+        <div class="meta">
+       Creador:{{usuariocarga}}
+     </div>
+        <div class="description">
+        <i class="calendar icon"></i>  {{fechaEscrita}} <br>
+        <i class="comment icon"></i> {{motivo}}
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="ui two buttons">
+            {{#if pagado}}<div class="ui basic button">Verificado por: {{userverif}} - {{fechaPago}}</div>
+            {{else}}
+                    <a href="{{pathFor route='editar/:_id'}}">
+                    <div class="ui basic blue button" id="editar">Editar</div></a>
+                    <div class="ui basic green button" id="pago">Pagado</div>
+            {{/if}}
+            </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
+</div>
+</template>
