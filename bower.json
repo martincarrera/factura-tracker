@@ -1,0 +1,23 @@
+{
+  "name": "factura-tracker",
+  "main": [
+    "/dist/factura-tracker.min.js",
+    "/dist/factura-tracker.min.css"
+  ],
+  "version": "3.0.0",
+  "description": "Factura Tracker",
+  "authors": [
+    "martincarrera"
+  ],
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "gulpfile.js",
+    "node_modules",
+    "bower_components",
+    "src"
+  ],
+  "dependencies": {
+    "angular": "latest"
+  }
+}
