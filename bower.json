@@ -18,6 +18,8 @@
     "src"
   ],
   "dependencies": {
-    "angular": "latest"
+    "angular": "latest",
+    "firebase": "^3.2.1",
+    "angularfire": "^2.0.1"
   }
 }
