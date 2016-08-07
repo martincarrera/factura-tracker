@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="facturaTracker">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="public/favicon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="app.js"></script>
     <title>Factura Tracker v3.0</title>
   </head>
-  <body>
+  <body ng-controller="mainCtrl">
+    <!-- anything typed in here is magically saved to our Firebase database! -->
+    <input type="text" ng-model="data.text"/>
+    <!-- all changes from our Firebase database magically appear here! -->
+    <h1>You said: {{ data.text }}</h1>
   </body>
 </html>
