@@ -1,39 +1,30 @@
 <!DOCTYPE html>
-<html  ng-app="facturaTracker">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
 
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/ng-notify/dist/ng-notify.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="bower_components/angular-messages/angular-messages.min.js"></script>
     <script src="bower_components/angular-material/angular-material.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
-    <script src="app.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/routes/routes.js"></script>
+
+    <script src="js/controllers/login-controller.js"></script>
+    <script src="js/controllers/rules-controller.js"></script>
+
     <title>Factura Tracker v3.0</title>
   </head>
-  <body ng-controller="mainCtrl">
-    <!-- anything typed in here is magically saved to our Firebase database! -->
-    <input type="text" ng-model="data.text"/>
-    <!-- all changes from our Firebase database magically appear here! -->
-    <h1>You said: {{ data.text }}</h1>
-    <hr>
-    <ul>
-      <li ng-repeat="message in messages">
-        <!-- edit a message -->
-        <input ng-model="message.text" ng-change="messages.$save(message)" />
-        <!-- delete a message -->
-        <button ng-click="messages.$remove(message)">Delete Message</button>
-      </li>
-    </ul>
-    <!-- push a new message onto the array -->
-    <form ng-submit="addMessage()">
-      <input ng-model="newMessageText" />
-      <button type="submit">Add Message</button>
-    </form>
+  <body ng-app="factura-tracker">
+    <div ui-view></div>
   </body>
 </html>
