@@ -13,7 +13,7 @@
 
     vm.addRule = function() {
       vm.rules.$add({
-        text: $scope.newRuleText
+        text: vm.newRuleText
       });
     };
   }
