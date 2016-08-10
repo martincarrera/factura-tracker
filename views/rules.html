@@ -1,3 +1,15 @@
 <div class="">
-
+  <ul>
+    <li ng-repeat="rule in vm.rules">
+      <!-- edit a message -->
+      <input ng-model="rule.text" ng-change="rules.$save(rule)" />
+      <!-- delete a message -->
+      <button ng-click="rules.$remove(rule)">Delete Rule</button>
+    </li>
+  </ul>
+  <!-- push a new message onto the array -->
+  <form ng-submit="vm.addRule()">
+    <input ng-model="newRuleText" />
+    <button type="submit">Add Rule</button>
+  </form>
 </div>
