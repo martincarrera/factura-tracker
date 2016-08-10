@@ -2,9 +2,9 @@
   <ul>
     <li ng-repeat="rule in vm.rules">
       <!-- edit a message -->
-      <input ng-model="rule.text" ng-change="rules.$save(rule)" />
+      <input ng-model="rule.text" ng-change="vm.rules.$save(rule)" />
       <!-- delete a message -->
-      <button ng-click="rules.$remove(rule)">Delete Rule</button>
+      <button ng-click="vm.rules.$remove(rule)">Delete Rule</button>
     </li>
   </ul>
   <!-- push a new message onto the array -->
