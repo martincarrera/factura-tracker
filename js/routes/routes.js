@@ -11,5 +11,10 @@ angular.module('factura-tracker')
         url: '/login',
         templateUrl: '../views/login.html',
         controller: 'LoginController as vm'
+      })
+      .state('register', {
+        url: '/register',
+        templateUrl: '../views/register.html',
+        controller: 'RegisterController as vm'
       });
   });
