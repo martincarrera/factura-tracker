@@ -5,13 +5,13 @@
       <form>
         <h1>Ingresar</h1>
         <div>
-          <input type="text" class="form-control" placeholder="Usuario" required="">
+          <input type="text" class="form-control" placeholder="Usuario" required="" ng-model="vm.email">
         </div>
         <div>
-          <input type="password" class="form-control" placeholder="Contraseña" required="">
+          <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="vm.password">
         </div>
         <div>
-          <a class="btn btn-default submit font-family" ui-sref="rules">Ingresar</a>
+          <a class="btn btn-default submit font-family" ng-click="vm.signInWithEmailAndPassword()">Ingresar</a>
         </div>
         <div class="clearfix"></div>
         <div class="separator">
