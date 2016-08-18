@@ -4,9 +4,9 @@
   .module('factura-tracker')
   .controller('LoginController', LoginController);
 
-  LoginController.$inject = [];
+  LoginController.$inject = ['$state'];
 
-  function LoginController() {
+  function LoginController($state) {
     var vm = this;
     vm.email = "";
     vm.password = "";
@@ -16,6 +16,7 @@
       .then(data => {
         if (data.uid) {
           console.log('Usuario ' + data.email + ' logeado.');
+          $state.go('rules');
         }
       });
     }
