@@ -4,7 +4,7 @@
   .module('factura-tracker')
   .controller('RegisterController', RegisterController);
 
-  LoginController.$inject = ['$state'];
+  RegisterController.$inject = ['$state'];
 
   function RegisterController($state) {
     var vm = this;
