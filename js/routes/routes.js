@@ -16,5 +16,10 @@ angular.module('factura-tracker')
         url: '/register',
         templateUrl: '../views/register.html',
         controller: 'RegisterController as vm'
+      })
+      .state('home', {
+        url: '/home',
+        templateUrl: '../views/home.html',
+        controller: 'HomeController as vm'
       });
   });
