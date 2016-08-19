@@ -4,14 +4,10 @@
     .module('factura-tracker')
     .controller('RulesController', RulesController);
 
-  RulesController.$inject = ['$state', '$firebaseArray'];
+  RulesController.$inject = ['$firebaseArray'];
 
-  function RulesController($state, $firebaseArray) {
+  function RulesController($firebaseArray) {
     var vm = this;
-
-    if (firebase.auth().currentUser === null) {
-      $state.go('login');
-    }
 
     ref = firebase.database().ref().child("rules");
     vm.rules = $firebaseArray(ref);

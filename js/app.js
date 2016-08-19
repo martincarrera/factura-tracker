@@ -9,6 +9,15 @@ angular.module('factura-tracker', ['ui.router', 'ngNotify', 'firebase'])
 
    firebase.initializeApp(config);
 })
+.run(function routesInterceptor($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+      var requireLogin = toState.data.requireLogin;
+      if (requireLogin && (firebase.auth().currentUser === null)) {
+        event.preventDefault();
+        $state.go('login');
+      }
+    });
+})
 // .config(function ($httpProvider) {
 //   $httpProvider.interceptors.push('AuthInterceptor');
 // });
