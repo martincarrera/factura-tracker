@@ -16,6 +16,7 @@
       vm.facturas.$add({
         text: vm.facturasText
       });
+      vm.facturasText = "";
     };
   }
 

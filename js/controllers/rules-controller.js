@@ -13,9 +13,12 @@
     vm.rules = $firebaseArray(ref);
 
     vm.addRule = function() {
-      vm.rules.$add({
-        text: vm.newRuleText
-      });
+      if(vm.newRuleText !== "") {
+        vm.rules.$add({
+          text: vm.newRuleText
+        });
+        vm.newRuleText = "";
+      }
     };
   }
 
