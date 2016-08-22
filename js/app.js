@@ -1,4 +1,4 @@
-angular.module('factura-tracker', ['ui.router', 'ngNotify', 'firebase'])
+angular.module('factura-tracker', ['ngMaterial', 'ui.router', 'ngNotify', 'firebase'])
 .config(function() {
   var config = {
       apiKey: "AIzaSyDrZ4JH7jmMsJxuVVlGsb6CrUDGhojb03M",
