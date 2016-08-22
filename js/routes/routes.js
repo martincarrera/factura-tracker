@@ -1,6 +1,6 @@
 angular.module('factura-tracker')
   .config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/home');
     $stateProvider
       .state('rules', {
         url: '/rules',

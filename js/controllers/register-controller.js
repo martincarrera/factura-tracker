@@ -16,7 +16,7 @@
       .then(data => {
         if (data.uid) {
           console.log('Usuario ' + data.email + ' logeado.');
-          $state.go('rules');
+          $state.go('home');
         }
       });
     }  }
