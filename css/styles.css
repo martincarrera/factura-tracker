@@ -1,1 +1,13 @@
+.header {
+  font-size: 32px;
+  font-weight: 400;
+}
 
+.login-view {
+  height: 100vh;
+}
+
+.login-card {
+  min-height: 300px;
+  max-width: 350px;
+}

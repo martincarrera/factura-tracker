@@ -1,28 +1,36 @@
-<section class="login">
-  <div class="login-box">
-    <section class="login_content">
-      <div class="title">Factura Tracker</div>
-      <form>
-        <h1>Ingresar</h1>
-        <div>
-          <input type="text" class="form-control" placeholder="Usuario" required="" ng-model="vm.email">
+<section class="login-view" flex layout="column">
+  <div flex="30" flex-sm="15"></div>
+  <md-content flex layout="row" layout-align="center center">
+    <md-card flex class="login-card">
+      <md-card-title flex layout-align="center center">
+        <span class="header">Factura Tracker</span>
+      </md-card-title>
+      <md-divider></md-divider>
+      <div layout="column">
+        <div layout="row" layout-align="center center">
+          <div flex="5"></div>
+          <md-input-container flex="90">
+            <label>Email</label>
+            <input type="email" class="form-control" required="" ng-model="vm.email">
+          </md-input-container>
+          <div flex="5"></div>
         </div>
-        <div>
-          <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="vm.password">
+        <div layout="row" layout-align="center center">
+          <div flex="5"></div>
+          <md-input-container flex="90">
+            <label>Contraseña</label>
+            <input type="password" class="form-control" required="" ng-model="vm.password">
+          </md-input-container>
+          <div flex="5"></div>
         </div>
-        <div>
-          <a class="" ng-click="vm.signInWithEmailAndPassword()">Ingresar</a>
-        </div>
-        <div class=""></div>
-        <div class="">
-          <p class="">Nuevo en el sitio?
-            <a ui-sref="register" class=""> Crear una cuenta </a>
-          </p>
-          <div class=""></div>
-          <br>
-        </div>
-      </form>
-      <!-- form -->
-    </section>
-  </div>
+      </div>
+      <md-divider></md-divider>
+      <md-card-actions layout="row" layout-align="center center">
+        <md-button flex="35" class="md-raised md-primary" ng-click="vm.signInWithEmailAndPassword()">Ingresar</md-button>
+        <div flex="10"></div>
+        <md-button flex="35" class="md-raised md-primary" ui-sref="register">Registrarse</md-button>
+      </md-card-actions>
+    </md-card>
+  </md-content>
+  <div flex="30" flex-sm="15"></div>
 </section>
