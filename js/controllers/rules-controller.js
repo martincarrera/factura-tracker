@@ -15,7 +15,10 @@
     vm.addRule = function() {
       if(vm.newRuleText !== "") {
         vm.rules.$add({
-          text: vm.newRuleText
+          description: vm.newRuleText,
+          creator: firebase.auth().currentUser.email,
+          createdDate: Date(),
+          type: "facturas"
         });
         vm.newRuleText = "";
       }

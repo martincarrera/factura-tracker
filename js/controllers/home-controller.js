@@ -14,7 +14,9 @@
 
     vm.addFactura = function() {
       vm.facturas.$add({
-        text: vm.facturasText
+        text: vm.facturasText,
+        creator: firebase.auth().currentUser.email,
+        createdDate: new Date()
       });
       vm.facturasText = "";
     };

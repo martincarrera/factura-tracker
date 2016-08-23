@@ -3,7 +3,7 @@
     <section class="">
       <ul>
         <li ng-repeat="rule in vm.rules">
-          <input type="text" class="form-control" ng-model="rule.text" ng-change="vm.rules.$save(rule)" />
+          <input type="text" class="form-control" ng-model="rule.description" ng-change="vm.rules.$save(rule)" />
           <button class="" ng-click="vm.rules.$remove(rule)">Delete Rule</button>
         </li>
       </ul>
