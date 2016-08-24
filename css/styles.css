@@ -1,4 +1,4 @@
-.header {
+.login-header {
   font-size: 32px;
   font-weight: 400;
 }
@@ -10,4 +10,25 @@
 .login-card {
   min-height: 300px;
   max-width: 350px;
+}
+
+.header {
+  font-size: 40px;
+}
+
+.main-view {
+  min-height: calc(100vh - 176px);
+}
+
+a {
+  text-decoration: none;
+}
+
+span {
+  text-align: center;
+}
+
+.footer {
+  font-size: 0.6em;
+  height: 60px;
 }

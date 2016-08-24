@@ -1,0 +1,27 @@
+<md-toolbar class="md-medium-tall" layout layout-align="center center" flex>
+  <div flex="10" layout layout-align="start center">
+    <md-button ui-sref="home" class="md-icon-button" aria-label="home">
+      <md-icon md-svg-src="images/settings.svg"></md-icon>
+    </md-button>
+    <md-button ui-sref="rules" class="md-icon-button" aria-label="rules">
+      <md-icon md-svg-src="images/settings.svg"></md-icon>
+    </md-button>
+  </div>
+  <div layout layout-align="center center" flex="80">
+    <span class="header">Factura Tracker</span>
+  </div>
+  <div flex="10" layout layout-align="end center">
+    <md-button ng-click="vm.signout();" class="md-icon-button" aria-label="Sign out">
+      <md-icon md-svg-src="images/settings.svg"></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+<main class="main-view">
+</main>
+<md-toolbar class="md-medium-tall">
+  <div layout="row" layout-align="center center" flex class="footer">
+    <span>
+      Made with <md-icon md-svg-src="images/heart.svg"></md-icon> by <a class="md-accent" href="http://www.martincarrera.xyz">Martin Carrera</a>
+    </span>
+  </div>
+</md-toolbar>

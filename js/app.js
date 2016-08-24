@@ -9,6 +9,11 @@ angular.module('factura-tracker', ['ngMaterial', 'ui.router', 'ngNotify', 'fireb
 
    firebase.initializeApp(config);
 })
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('teal')
+    .accentPalette('orange');
+})
 .run(function routesInterceptor($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
       var requireLogin = toState.data.requireLogin;
@@ -18,6 +23,3 @@ angular.module('factura-tracker', ['ngMaterial', 'ui.router', 'ngNotify', 'fireb
       }
     });
 })
-// .config(function ($httpProvider) {
-//   $httpProvider.interceptors.push('AuthInterceptor');
-// });

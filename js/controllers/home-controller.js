@@ -4,10 +4,16 @@
     .module('factura-tracker')
     .controller('HomeController', HomeController);
 
-  HomeController.$inject = ['$firebaseArray'];
+  HomeController.$inject = ['$state', '$firebaseArray'];
 
-  function HomeController($firebaseArray) {
+  function HomeController($state, $firebaseArray) {
     var vm = this;
+
+    vm.signout = function() {
+      firebase.auth().signOut().then(function() {
+        $state.go('login');
+      });
+    }
 
     ref = firebase.database().ref().child("facturas");
     vm.facturas = $firebaseArray(ref);
