@@ -1,27 +1,51 @@
 <md-toolbar class="md-medium-tall" layout layout-align="center center" flex>
+  <div flex="5"></div>
   <div flex="10" layout layout-align="start center">
     <md-button ui-sref="home" class="md-icon-button" aria-label="home">
-      <md-icon md-svg-src="images/settings.svg"></md-icon>
+      <md-tooltip md-direction="top">
+        Inicio
+      </md-tooltip>
+      <md-icon md-svg-src="images/home.svg"></md-icon>
     </md-button>
     <md-button ui-sref="rules" class="md-icon-button" aria-label="rules">
-      <md-icon md-svg-src="images/settings.svg"></md-icon>
+      <md-tooltip md-direction="top">
+        Reglas
+      </md-tooltip>
+      <md-icon md-svg-src="images/list.svg"></md-icon>
     </md-button>
   </div>
-  <div layout layout-align="center center" flex="80">
+  <div layout layout-align="center center" flex="70">
     <span class="header">Factura Tracker</span>
   </div>
   <div flex="10" layout layout-align="end center">
     <md-button ng-click="vm.signout();" class="md-icon-button" aria-label="Sign out">
-      <md-icon md-svg-src="images/settings.svg"></md-icon>
+      <md-tooltip md-direction="top">
+        Salir
+      </md-tooltip>
+      <md-icon md-svg-src="images/sign-out.svg"></md-icon>
     </md-button>
   </div>
+  <div flex="5"></div>
 </md-toolbar>
+
 <main class="main-view">
+  <div layout="column" flex>
+    <div layout flex>
+      <div flex="5"></div>
+      <div flex="10">
+        <!-- <md-switch class="md-primary" ng-model="vm.showPaid" aria-label="Show Paid">
+          Mostrar Pagadas
+        </md-switch> -->
+      </div>
+      <div flex></div>
+    </div>
+  </div>
 </main>
-<md-toolbar class="md-medium-tall">
+
+<md-toolbar class="md-medium-small">
   <div layout="row" layout-align="center center" flex class="footer">
     <span>
-      Made with <md-icon md-svg-src="images/heart.svg"></md-icon> by <a class="md-accent" href="http://www.martincarrera.xyz">Martin Carrera</a>
+      Hecho con <md-icon md-svg-src="images/heart.svg"></md-icon> por <a href="http://www.martincarrera.xyz">un gordo</a>
     </span>
   </div>
 </md-toolbar>

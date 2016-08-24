@@ -11,8 +11,7 @@ angular.module('factura-tracker', ['ngMaterial', 'ui.router', 'ngNotify', 'fireb
 })
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('teal')
-    .accentPalette('orange');
+    .primaryPalette('blue-grey');;
 })
 .run(function routesInterceptor($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
