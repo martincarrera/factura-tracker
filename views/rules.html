@@ -1,16 +1,53 @@
-<section class="">
-  <div class="">
-    <section class="">
-      <ul>
-        <li ng-repeat="rule in vm.rules">
-          <input type="text" class="form-control" ng-model="rule.description" ng-change="vm.rules.$save(rule)" />
-          <button class="" ng-click="vm.rules.$remove(rule)">Delete Rule</button>
-        </li>
-      </ul>
-      <form ng-submit="vm.addRule()">
-        <input type="text" class="form-control" ng-model="vm.newRuleText" />
-        <button type="submit" class="">Add Rule</button>
-      </form>
-    </section>
+<md-toolbar class="md-medium-tall" layout layout-align="center center" flex>
+  <div flex="5"></div>
+  <div flex="10" layout layout-align="start center">
+    <md-button ui-sref="home" class="md-icon-button" aria-label="home">
+      <md-tooltip md-direction="top">
+        Inicio
+      </md-tooltip>
+      <md-icon md-svg-src="images/home.svg"></md-icon>
+    </md-button>
+    <md-button ui-sref="rules" class="md-icon-button" aria-label="rules">
+      <md-tooltip md-direction="top">
+        Reglas
+      </md-tooltip>
+      <md-icon md-svg-src="images/list.svg"></md-icon>
+    </md-button>
   </div>
-</section>
+  <div layout layout-align="center center" flex="70">
+    <span class="header">Factura Tracker</span>
+  </div>
+  <div flex="10" layout layout-align="end center">
+    <md-button ng-click="vm.signout();" class="md-icon-button" aria-label="Sign out">
+      <md-tooltip md-direction="top">
+        Salir
+      </md-tooltip>
+      <md-icon md-svg-src="images/sign-out.svg"></md-icon>
+    </md-button>
+  </div>
+  <div flex="5"></div>
+</md-toolbar>
+
+<main class="main-view">
+  <div flex>
+    <ul>
+      <li ng-repeat="rule in vm.rules">
+        {{rule.description}}
+        <!-- <input type="text" class="form-control" ng-model="rule.description" ng-change="vm.rules.$save(rule)" /> -->
+        <md-button ng-click="vm.rules.$remove(rule)">Delete Rule</md-button>
+      </li>
+    </ul>
+    <form ng-submit="vm.addRule()">
+      <input type="text" class="form-control" ng-model="vm.newRuleText" />
+      <md-button type="submit">Add Rule</md-button>
+    </form>
+  </div>
+</main>
+
+<md-toolbar class="md-medium-small">
+  <div layout="row" layout-align="center center" flex class="footer">
+    <span>
+      Hecho con <md-icon md-svg-src="images/heart.svg"></md-icon> por <a href="http://www.martincarrera.xyz">un gordo</a>
+    </span>
+  </div>
+</md-toolbar>

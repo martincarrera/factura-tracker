@@ -17,7 +17,7 @@
 }
 
 .main-view {
-  min-height: calc(100vh - 152px);
+  height: calc(100vh - 152px);
 }
 
 a {
@@ -32,4 +32,16 @@ span {
 .footer {
   font-size: 0.6em;
   height: 60px;
+}
+.hint {
+  position: absolute;
+  left: 2px;
+  right: auto;
+  bottom: 7px;
+  /* Copy styles from ng-messages */
+  font-size: 12px;
+  line-height: 14px;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  /* Set our own color */
+  color: grey;
 }
