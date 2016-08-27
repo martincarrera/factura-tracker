@@ -29,8 +29,13 @@
 </md-toolbar>
 <main class="main-view">
   <br>
-  <md-toolbar>
-  </md-toolbar>
+  <md-card flex="100" md-whiteframe="8">
+    <div flex="10" flex-offset="5" layout layout-align="center center">
+      <md-switch class="md-primary" ng-model="vm.showPaid" aria-label="Show Paid">
+        Mostrar Pagadas
+      </md-switch>
+    </div>
+  </md-card>
   <br>
   <div layout="column" flex>
     <div layout flex>
