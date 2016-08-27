@@ -15,14 +15,32 @@
       });
     }
 
-    ref = firebase.database().ref().child("facturas");
-    vm.facturas = $firebaseArray(ref);
+    vm.newFactura = {};
 
-    vm.addFactura = function() {
+    facturas = firebase.database().ref().child("facturas");
+    vm.facturas = $firebaseArray(facturas);
+
+    rules = firebase.database().ref().child("rules");
+    vm.rules = $firebaseArray(rules);
+
+    vm.querySearch = (query) => {
+      var results = query ? vm.rules.filter( vm.createFilterFor(query) ) : vm.rules, deferred;
+      return results;
+    }
+
+    vm.createFilterFor = (query) => {
+      return (rule) => {
+        return (rule.description.indexOf(angular.lowercase(query)) === 0);
+      };
+    }
+
+    vm.addFactura = () => {
       vm.facturas.$add({
-        text: vm.facturasText,
+        motive: vm.newFactura.motive.description,
+        guilty: vm.newFactura.user,
         creator: firebase.auth().currentUser.email,
-        createdDate: new Date()
+        createdDate: Date(),
+        paid: false
       });
       vm.facturasText = "";
     };

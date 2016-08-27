@@ -11,8 +11,16 @@ angular.module('factura-tracker', ['ngMaterial', 'ui.router', 'ngNotify', 'fireb
 })
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('blue-grey')
-    .accentPalette('deep-purple');
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue-grey', {
+      'default': '500',
+      'hue-1': '100',
+      'hue-2': '300',
+      'hue-3': '700'
+    })
+    .accentPalette('pink', {
+      'default': 'A200'
+    });
 })
 .run(function routesInterceptor($rootScope, $state) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
