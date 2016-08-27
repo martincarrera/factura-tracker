@@ -45,3 +45,8 @@ span {
   /* Set our own color */
   color: grey;
 }
+
+.title-card {
+  min-height: 80px;
+  max-height: 80px;
+}

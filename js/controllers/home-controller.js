@@ -42,7 +42,7 @@
         createdDate: Date(),
         paid: false
       });
-      vm.facturasText = "";
+      vm.newFactura = {};
     };
   }
 
