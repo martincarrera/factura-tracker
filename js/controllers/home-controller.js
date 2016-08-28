@@ -8,6 +8,7 @@
 
   function HomeController($state, $firebaseArray) {
     var vm = this;
+    vm.searchText = "";
 
     vm.signout = function() {
       firebase.auth().signOut().then(function() {
@@ -30,7 +31,7 @@
 
     vm.createFilterFor = (query) => {
       return (rule) => {
-        return (angular.lowercase(rule.description).indexOf(angular.lowercase(query)) === 0);
+        return rule.description.toLowerCase().indexOf(query.toLowerCase()) !== -1;
       };
     }
 

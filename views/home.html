@@ -61,7 +61,12 @@
             md-select-on-match="true"
             placeholder="Por qué?"
             flex>
-              <span md-highlight-text="vm.searchText">{{item.description}}</span>
+              <md-item-template>
+                <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.description}}</span>
+              </md-item-template>
+              <md-not-found>
+                No existe regla "{{vm.searchText}}"
+              </md-not-found>
             </md-autocomplete>
           </div>
           <div flex="10" layout layout-align="end center">
