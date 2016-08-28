@@ -41,7 +41,7 @@
       </div>
       <div flex="15"></div>
       <div flex="50" layout="row" layout-align="center center">
-        <form id="facturaForm" name="facturaForm" flex="100" layout layout-align="end center" ng-submit="vm.addFactura()">
+        <form id="facturaForm" name="vm.facturaForm" flex="100" layout layout-align="end center" ng-submit="vm.addFactura()">
           <div flex></div>
           <div flex="30">
             <md-input-container flex>
@@ -52,62 +52,70 @@
           <div flex="30">
             <md-autocomplete md-selected-item="vm.newFactura.motive"
             md-search-text="vm.searchText"
+            md-autoselect="true"
             md-items="item in vm.querySearch(vm.searchText)"
             md-item-text="item.description"
             md-require-match="true"
             md-min-length="0"
-            md-autoselect="true"
             md-floating-label="Por qué?"
             md-select-on-match="true"
             placeholder="Por qué?"
             flex>
-            <span md-highlight-text="vm.searchText">{{item.description}}</span>
-          </md-autocomplete>
-        </div>
-        <div flex="10" layout layout-align="end center">
-          <md-button class="md-fab md-mini md-accent" aria-label="Agregar" type="submit">
-            <md-icon md-svg-src="images/add.svg"></md-icon>
-          </md-button>
-        </div>
-        <div flex></div>
-      </form>
-    </div>
-    <div flex="25"></div>
-  </md-card>
-  <br>
-  <md-content layout="column" layout-padding style="position: relative;">
-    <div layout="row" layout-wrap>
-      <div flex="20" ng-repeat="factura in vm.facturas" ng-show="(vm.showPaid && factura.paid) || !factura.paid">
-        <md-card flex md-whiteframe="8">
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">
-                <md-icon ng-show="factura.paid" md-svg-src="images/paid.svg"></md-icon>
-                <md-icon ng-hide="factura.paid" md-svg-src="images/debt.svg"></md-icon>
-                {{factura.guilty}}
-              </span>
-              <span class="md-subhead">Creador: {{factura.creator}}</span>
-            </md-card-title-text>
-          </md-card-title>
-          <md-card-content>
-            <p>
-              <md-icon md-svg-src="images/hammer.svg" style="margin-right: 5px;"></md-icon>
-              <span>{{factura.motive}}</span>
-            </p>
-            <p>
-              <md-icon md-svg-src="images/calendar.svg" style="margin-right: 5px;"></md-icon>
-              <span>{{factura.expirationDate | date:'dd MMMM yyyy'}}</span>
-            </p>
-          </md-card-content>
-          <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-hide="factura.paid" class="md-raised md-accent" ng-click="vm.payFactura(factura)">Pagada</md-button>
-            <md-button ng-show="factura.paid" ng-disabled="true" class="md-primary">Validado por {{factura.verifier}}</md-button>
-            <span></span>
-          </md-card-actions>
-        </md-card>
+              <span md-highlight-text="vm.searchText">{{item.description}}</span>
+            </md-autocomplete>
+          </div>
+          <div flex="10" layout layout-align="end center">
+            <md-button class="md-fab md-mini md-accent" aria-label="Agregar" type="submit">
+              <md-icon md-svg-src="images/add.svg"></md-icon>
+            </md-button>
+          </div>
+          <div flex></div>
+        </form>
       </div>
-    </div>
-  </md-content>
+      <div flex="25"></div>
+    </md-card>
+    <br>
+    <md-content layout="column" layout-padding style="position: relative;">
+      <div layout="row" layout-wrap>
+        <div flex="20" ng-repeat="factura in vm.facturas" ng-show="(vm.showPaid && factura.paid) || !factura.paid">
+          <md-card flex md-whiteframe="8">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">
+                  <md-icon ng-show="factura.paid" md-svg-src="images/paid.svg"></md-icon>
+                  <md-icon ng-hide="factura.paid" md-svg-src="images/debt.svg"></md-icon>
+                  {{factura.guilty}}
+                </span>
+                <span class="md-subhead">Creador: {{factura.creator}}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <p>
+                <md-icon md-svg-src="images/hammer.svg" style="margin-right: 5px;">
+                  <md-tooltip md-direction="top">
+                    Regla
+                  </md-tooltip>
+                </md-icon>
+                <span>{{factura.motive}}</span>
+              </p>
+              <p>
+                <md-icon md-svg-src="images/calendar.svg" style="margin-right: 5px;">
+                  <md-tooltip md-direction="top">
+                    Vencimiento
+                  </md-tooltip>
+                </md-icon>
+                <span>{{factura.expirationDate | date:'dd MMMM yyyy'}}</span>
+              </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-hide="factura.paid" class="md-raised md-accent" ng-click="vm.payFactura(factura)">Pagada</md-button>
+              <md-button ng-show="factura.paid" ng-disabled="true" class="md-primary">Validado por {{factura.verifier}}</md-button>
+              <span></span>
+            </md-card-actions>
+          </md-card>
+        </div>
+      </div>
+    </md-content>
   </md-content>
 </main>
 

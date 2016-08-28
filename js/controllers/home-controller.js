@@ -39,15 +39,19 @@
       var expirationDate = new Date(createdDate.valueOf());
       var days = 15;
       expirationDate.setDate(expirationDate.getDate() + days);
-      vm.facturas.$add({
-        motive: vm.newFactura.motive.description,
-        guilty: vm.newFactura.user,
-        creator: firebase.auth().currentUser.email,
-        createdDate: createdDate.toJSON(),
-        expirationDate: expirationDate.toJSON(),
-        paid: false
-      });
-      vm.newFactura = {};
+      if(vm.newFactura.motive && vm.newFactura.user) {
+        vm.facturas.$add({
+          motive: vm.newFactura.motive.description,
+          guilty: vm.newFactura.user,
+          creator: firebase.auth().currentUser.email,
+          createdDate: createdDate.toJSON(),
+          expirationDate: expirationDate.toJSON(),
+          paid: false
+        });
+        vm.newFactura = {};
+        vm.facturaForm.$setPristine();
+        vm.facturaForm.$setUntouched();
+      }
     };
 
     vm.payFactura = (factura) => {
