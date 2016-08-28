@@ -47,7 +47,8 @@
           creator: firebase.auth().currentUser.email,
           createdDate: createdDate.toJSON(),
           expirationDate: expirationDate.toJSON(),
-          paid: false
+          paid: false,
+          verifier: null
         });
         vm.newFactura = {};
         vm.facturaForm.$setPristine();
@@ -56,7 +57,9 @@
     };
 
     vm.payFactura = (factura) => {
-      console.log(factura);
+      factura.paid = true;
+      factura.verifier = firebase.auth().currentUser.email;
+      vm.facturas.$save(factura);
     }
   }
 
