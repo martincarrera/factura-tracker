@@ -77,13 +77,33 @@
   <br>
   <md-content layout="column" layout-padding style="position: relative;">
     <div layout="row" layout-wrap>
-      <div flex="20" ng-repeat="factura in vm.facturas">
+      <div flex="20" ng-repeat="factura in vm.facturas" ng-show="(vm.showPaid && factura.paid) || !factura.paid">
         <md-card flex md-whiteframe="8">
-          <span>{{factura.motive}}</span>
-          <span>{{factura.guilty}}</span>
-          <span>{{factura.creator}}</span>
-          <span>{{factura.createdDate}}</span>
-          <span>{{factura.paid}}</span>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">
+                <md-icon ng-show="factura.paid" md-svg-src="images/paid.svg"></md-icon>
+                <md-icon ng-hide="factura.paid" md-svg-src="images/debt.svg"></md-icon>
+                {{factura.guilty}}
+              </span>
+              <span class="md-subhead">Creador: {{factura.creator}}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>
+              <md-icon md-svg-src="images/hammer.svg" style="margin-right: 5px;"></md-icon>
+              <span>{{factura.motive}}</span>
+            </p>
+            <p>
+              <md-icon md-svg-src="images/calendar.svg" style="margin-right: 5px;"></md-icon>
+              <span>{{factura.expirationDate | date:'dd MMMM yyyy'}}</span>
+            </p>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-hide="factura.paid" class="md-raised md-accent" ng-click="vm.payFactura(factura)">Pagada</md-button>
+            <md-button ng-show="factura.paid" ng-disabled="true" class="md-primary">Validado por {{factura.verifier}}</md-button>
+            <span></span>
+          </md-card-actions>
         </md-card>
       </div>
     </div>

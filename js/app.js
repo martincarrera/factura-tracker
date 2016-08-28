@@ -19,7 +19,8 @@ angular.module('factura-tracker', ['ngMaterial', 'ui.router', 'ngNotify', 'fireb
       'hue-3': '700'
     })
     .accentPalette('pink', {
-      'default': 'A200'
+      'default': 'A200',
+      'hue-1': '200'
     });
 })
 .run(function routesInterceptor($rootScope, $state) {

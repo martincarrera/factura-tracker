@@ -1,6 +1,7 @@
 .login-header {
   font-size: 32px;
   font-weight: 400;
+  text-align: center;
 }
 
 .login-view {
@@ -25,10 +26,6 @@ a {
   text-decoration: none;
 }
 
-span {
-  text-align: center;
-}
-
 .footer {
   font-size: 0.6em;
   height: 60px;
@@ -49,4 +46,9 @@ span {
 .title-card {
   min-height: 80px;
   max-height: 80px;
+}
+
+.md-subhead {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 12px;
 }

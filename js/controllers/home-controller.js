@@ -30,20 +30,29 @@
 
     vm.createFilterFor = (query) => {
       return (rule) => {
-        return (rule.description.indexOf(angular.lowercase(query)) === 0);
+        return (angular.lowercase(rule.description).indexOf(angular.lowercase(query)) === 0);
       };
     }
 
     vm.addFactura = () => {
+      var createdDate = new Date();
+      var expirationDate = new Date(createdDate.valueOf());
+      var days = 15;
+      expirationDate.setDate(expirationDate.getDate() + days);
       vm.facturas.$add({
         motive: vm.newFactura.motive.description,
         guilty: vm.newFactura.user,
         creator: firebase.auth().currentUser.email,
-        createdDate: Date(),
+        createdDate: createdDate.toJSON(),
+        expirationDate: expirationDate.toJSON(),
         paid: false
       });
       vm.newFactura = {};
     };
+
+    vm.payFactura = (factura) => {
+      console.log(factura);
+    }
   }
 
 })();
