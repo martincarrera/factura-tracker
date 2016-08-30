@@ -10,12 +10,19 @@
     var vm = this;
     vm.email = "";
     vm.password = "";
+    vm.name = "";
+    vm.lastName = "";
+
+    var usersRef = firebase.database().ref().child('users');
 
     vm.createUserWithEmailAndPassword = () => {
       firebase.auth().createUserWithEmailAndPassword(vm.email, vm.password)
       .then(data => {
         if (data.uid) {
-          console.log('Usuario ' + data.email + ' logeado.');
+          usersRef.push({
+            "email": vm.email,
+            "name": vm.name
+          });
           $state.go('home');
         }
       });
