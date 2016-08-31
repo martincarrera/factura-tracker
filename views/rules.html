@@ -62,7 +62,12 @@
             </md-card-title-text>
           </md-card-title>
           <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-raised md-accent" ng-click="vm.rules.$remove(rule)">Eliminar</md-button>
+            <div flex="80">
+              <span class="md-subhead" style="padding-left: 12px;">Creador: {{rule.creator}}</span>
+            </div>
+            <div flex="20">
+              <md-button class="md-raised md-accent" ng-click="vm.rules.$remove(rule)">Eliminar</md-button>
+            </div>
           </md-card-actions>
         </md-card>
       </div>
