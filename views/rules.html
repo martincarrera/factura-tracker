@@ -29,19 +29,45 @@
 </md-toolbar>
 
 <main class="main-view">
-  <div flex>
-    <ul>
-      <li ng-repeat="rule in vm.rules">
-        {{rule.description}}
-        <!-- <input type="text" class="form-control" ng-model="rule.description" ng-change="vm.rules.$save(rule)" /> -->
-        <md-button ng-click="vm.rules.$remove(rule)">Delete Rule</md-button>
-      </li>
-    </ul>
-    <form ng-submit="vm.addRule()">
-      <input type="text" class="form-control" ng-model="vm.newRuleText" />
-      <md-button type="submit">Add Rule</md-button>
-    </form>
-  </div>
+  <md-content layout="column" layout-fill>
+    <br>
+    <md-card class="title-card" layout="row" md-whiteframe="8">
+      <div flex="20"></div>
+      <div flex="60" layout="row" layout-align="center center">
+        <form ng-submit="vm.addRule()" flex="100" layout layout-align="end center">
+          <div flex="20"></div>
+          <div flex="50">
+            <md-input-container class="md-block">
+              <label>Nueva Regla</label>
+              <input ng-model="vm.newRuleText" required>
+            </md-input-container>
+          </div>
+          <div flex="10">
+            <md-button class="md-fab md-mini md-accent" aria-label="Agregar" type="submit">
+              <md-icon md-svg-src="images/add.svg"></md-icon>
+            </md-button>
+          </div>
+          <div flex="20"></div>
+        </form>
+      </div>
+      <div flex="20"></div>
+    </md-card>
+    <br>
+    <md-content layout="column" layout-padding style="position: relative;">
+      <div layout="row" layout-align="center center" flex layout-wrap>
+        <md-card flex="30" ng-repeat="rule in vm.rules" md-whiteframe="8">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">{{rule.description}}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-raised md-accent" ng-click="vm.rules.$remove(rule)">Eliminar</md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </md-content>
+  </md-content>
 </main>
 
 <md-toolbar class="md-medium-small">
