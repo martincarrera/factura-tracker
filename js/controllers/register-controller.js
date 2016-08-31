@@ -21,7 +21,8 @@
         if (data.uid) {
           usersRef.push({
             "email": vm.email,
-            "name": vm.name
+            "name": vm.name,
+            "admin": false
           });
           $state.go('home');
         }

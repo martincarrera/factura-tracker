@@ -44,13 +44,27 @@
         <form id="facturaForm" name="vm.facturaForm" flex="100" layout layout-align="end center" ng-submit="vm.addFactura()">
           <div flex></div>
           <div flex="30">
-            <md-input-container flex>
-              <label>Quien?</label>
-              <input ng-model="vm.newFactura.user" required>
-            </md-input-container>
+            <md-autocomplete md-selected-item="vm.newFactura.user"
+              md-input-name="autocompleteUser"
+              md-search-text="vm.searchUser"
+              md-autoselect="true"
+              md-items="item in vm.querySearchUser(vm.searchUser)"
+              md-item-text="item.name"
+              md-min-length="0"
+              md-floating-label="Quién?"
+              md-select-on-match="true"
+              placeholder="Quién?"
+              flex required>
+              <md-item-template>
+                <span md-highlight-text="vm.searchUser" md-highlight-flags="^i">{{item.name}}</span>
+              </md-item-template>
+              <md-not-found>
+              </md-not-found>
+            </md-autocomplete>
           </div>
           <div flex="30">
             <md-autocomplete md-selected-item="vm.newFactura.motive"
+            md-input-name="autocompleteMotive"
             md-search-text="vm.searchText"
             md-autoselect="true"
             md-items="item in vm.querySearch(vm.searchText)"
@@ -60,7 +74,7 @@
             md-floating-label="Por qué?"
             md-select-on-match="true"
             placeholder="Por qué?"
-            flex>
+            flex required>
               <md-item-template>
                 <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.description}}</span>
               </md-item-template>
