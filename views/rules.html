@@ -53,7 +53,7 @@
       <div flex="20"></div>
     </md-card>
     <br>
-    <md-content layout="column" layout-padding style="position: relative;">
+    <md-content layout="column" layout-fill style="position: relative;">
       <div layout="row" layout-align="center center" flex layout-wrap>
         <md-card flex="30" ng-repeat="rule in vm.rules" md-whiteframe="8">
           <md-card-title>
@@ -66,7 +66,7 @@
               <span class="md-subhead" style="padding-left: 12px;">Creador: {{rule.creator}}</span>
             </div>
             <div flex="20">
-              <md-button class="md-raised md-accent" ng-click="vm.rules.$remove(rule)">Eliminar</md-button>
+              <md-button class="md-raised md-accent" ng-show="vm.admin()" ng-click="vm.rules.$remove(rule)">Eliminar</md-button>
             </div>
           </md-card-actions>
         </md-card>

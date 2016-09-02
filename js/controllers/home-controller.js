@@ -53,6 +53,15 @@
       };
     };
 
+    vm.getUserName = () => {
+      if (vm.users) {
+        return vm.users.filter((user) => {
+          return user.email === firebase.auth().currentUser.email;
+        })[0].name;
+      }
+      return "";
+    }
+
     vm.addFactura = () => {
       var createdDate = new Date();
       var expirationDate = new Date(createdDate.valueOf());
@@ -62,7 +71,7 @@
         vm.facturas.$add({
           motive: vm.newFactura.motive.description,
           guilty: vm.newFactura.user.name,
-          creator: firebase.auth().currentUser.email,
+          creator: vm.getUserName(),
           createdDate: createdDate.toJSON(),
           expirationDate: expirationDate.toJSON(),
           paid: false,
@@ -76,7 +85,7 @@
 
     vm.payFactura = (factura) => {
       factura.paid = true;
-      factura.verifier = firebase.auth().currentUser.email;
+      factura.verifier = vm.getUserName();
       vm.facturas.$save(factura);
     };
   }
