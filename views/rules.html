@@ -28,10 +28,10 @@
   <div flex="5"></div>
 </md-toolbar>
 
-<main class="main-view">
-  <md-content layout="column" layout-fill>
+<main class="main-view" layout="column" layout-fill>
+  <md-content>
     <br>
-    <md-card class="title-card" layout="row" md-whiteframe="8">
+    <md-card class="title-card" layout="row" md-whiteframe="8" flex="none">
       <div flex="20"></div>
       <div flex="60" layout="row" layout-align="center center">
         <form ng-submit="vm.addRule()" flex="100" layout layout-align="end center">
@@ -53,25 +53,23 @@
       <div flex="20"></div>
     </md-card>
     <br>
-    <md-content layout="column" layout-fill style="position: relative;">
-      <div layout="row" layout-align="center center" flex layout-wrap>
-        <md-card flex="30" ng-repeat="rule in vm.rules" md-whiteframe="8">
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">{{rule.description}}</span>
-            </md-card-title-text>
-          </md-card-title>
-          <md-card-actions layout="row" layout-align="end center">
-            <div flex="80">
-              <span class="md-subhead" style="padding-left: 12px;">Creador: {{rule.creator}}</span>
-            </div>
-            <div flex="20">
-              <md-button class="md-raised md-accent" ng-show="vm.admin()" ng-click="vm.rules.$remove(rule)">Eliminar</md-button>
-            </div>
-          </md-card-actions>
-        </md-card>
-      </div>
-    </md-content>
+    <div layout="row" layout-align="center center" flex layout-wrap>
+      <md-card flex="30" ng-repeat="rule in vm.rules" md-whiteframe="8">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{rule.description}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <div flex="80">
+            <span class="md-subhead" style="padding-left: 12px;">Creador: {{rule.creator}}</span>
+          </div>
+          <div flex="20">
+            <md-button class="md-raised md-accent" ng-show="vm.admin()" ng-click="vm.rules.$remove(rule)">Eliminar</md-button>
+          </div>
+        </md-card-actions>
+      </md-card>
+    </div>
   </md-content>
 </main>
 
