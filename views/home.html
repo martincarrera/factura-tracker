@@ -27,8 +27,8 @@
   </div>
   <div flex="5"></div>
 </md-toolbar>
-<main class="main-view">
-  <md-content layout="column" layout-fill>
+<main class="main-view" layout="column" layout-fill>
+  <md-content>
     <br>
     <md-card class="title-card" layout="row" md-whiteframe="8">
       <div flex="5"></div>
@@ -94,47 +94,45 @@
       <div flex="25"></div>
     </md-card>
     <br>
-    <md-content layout="column" layout-padding style="position: relative;">
-      <div layout="row" layout-wrap>
-        <div flex="20" ng-repeat="factura in vm.facturas" ng-show="(vm.showPaid && factura.paid) || !factura.paid">
-          <md-card flex md-whiteframe="8">
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline">
-                  <md-icon ng-show="factura.paid" md-svg-src="images/paid.svg"></md-icon>
-                  <md-icon ng-hide="factura.paid" md-svg-src="images/debt.svg"></md-icon>
-                  {{factura.guilty}}
-                </span>
-                <span class="md-subhead">Creador: {{factura.creator}}</span>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-              <p>
-                <md-icon md-svg-src="images/hammer.svg" style="margin-right: 5px;">
-                  <md-tooltip md-direction="top">
-                    Regla
-                  </md-tooltip>
-                </md-icon>
-                <span>{{factura.motive}}</span>
-              </p>
-              <p>
-                <md-icon md-svg-src="images/calendar.svg" style="margin-right: 5px;">
-                  <md-tooltip md-direction="top">
-                    Vencimiento
-                  </md-tooltip>
-                </md-icon>
-                <span>{{factura.expirationDate | date:'dd MMMM yyyy'}}</span>
-              </p>
-            </md-card-content>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-hide="factura.paid" class="md-raised md-accent" ng-click="vm.payFactura(factura)">Pagada</md-button>
-              <md-button ng-show="factura.paid" ng-disabled="true" class="md-primary">Validado por {{factura.verifier}}</md-button>
-              <span></span>
-            </md-card-actions>
-          </md-card>
-        </div>
+    <div layout="row" layout-wrap>
+      <div flex="20" ng-repeat="factura in vm.facturas" ng-show="(vm.showPaid && factura.paid) || !factura.paid">
+        <md-card flex md-whiteframe="8">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">
+                <md-icon ng-show="factura.paid" md-svg-src="images/paid.svg"></md-icon>
+                <md-icon ng-hide="factura.paid" md-svg-src="images/debt.svg"></md-icon>
+                {{factura.guilty}}
+              </span>
+              <span class="md-subhead">Creador: {{factura.creator}}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>
+              <md-icon md-svg-src="images/hammer.svg" style="margin-right: 5px;">
+                <md-tooltip md-direction="top">
+                  Regla
+                </md-tooltip>
+              </md-icon>
+              <span>{{factura.motive}}</span>
+            </p>
+            <p>
+              <md-icon md-svg-src="images/calendar.svg" style="margin-right: 5px;">
+                <md-tooltip md-direction="top">
+                  Vencimiento
+                </md-tooltip>
+              </md-icon>
+              <span>{{factura.expirationDate | date:'dd MMMM yyyy'}}</span>
+            </p>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-hide="factura.paid" class="md-raised md-accent" ng-click="vm.payFactura(factura)">Pagada</md-button>
+            <md-button ng-show="factura.paid" ng-disabled="true" class="md-primary">Validado por {{factura.verifier}}</md-button>
+            <span></span>
+          </md-card-actions>
+        </md-card>
       </div>
-    </md-content>
+    </div>
   </md-content>
 </main>
 
