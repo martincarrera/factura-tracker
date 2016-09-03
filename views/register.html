@@ -34,9 +34,11 @@
       </div>
       <md-divider></md-divider>
       <md-card-actions layout="row" layout-align="center center">
-        <md-button flex="35" class="md-raised md-primary" ng-click="vm.createUserWithEmailAndPassword()">Registrarse</md-button>
+        <md-button flex="35" class="md-raised md-accent" ng-click="vm.createUserWithEmailAndPassword()">Registrarse</md-button>
         <div flex="10"></div>
-        <md-button flex="35" class="md-raised md-primary" ui-sref="login">Ingresar</md-button>
+        <div flex="35">
+          <a ui-sref="login" class="md-primary">Volver al login</a>
+        </div>
       </md-card-actions>
     </md-card>
   </md-content>
