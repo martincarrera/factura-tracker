@@ -62,6 +62,10 @@
       return "";
     }
 
+    vm.checkExpiration = (date) => {
+      return date > (new Date()).toJSON();
+    }
+
     vm.addFactura = () => {
       var createdDate = new Date();
       var expirationDate = new Date(createdDate.valueOf());

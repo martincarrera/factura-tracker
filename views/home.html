@@ -103,6 +103,11 @@
                 <md-icon ng-show="factura.paid" md-svg-src="images/paid.svg"></md-icon>
                 <md-icon ng-hide="factura.paid" md-svg-src="images/debt.svg"></md-icon>
                 {{factura.guilty}}
+                <md-icon ng-hide="vm.checkExpiration(factura.expirationDate)" md-svg-src="images/vencido.svg">
+                  <md-tooltip md-direction="top">
+                    Vencido
+                  </md-tooltip>
+                </md-icon>
               </span>
               <span class="md-subhead">Creador: {{factura.creator}}</span>
             </md-card-title-text>
